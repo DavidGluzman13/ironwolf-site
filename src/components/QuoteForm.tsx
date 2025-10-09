@@ -105,12 +105,11 @@ export default function QuoteForm() {
                   className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-600 focus:outline-none transition-colors"
                 >
                   <option value="">Select a service...</option>
-                  <option value="residential">Residential Glass</option>
-                  <option value="commercial">Commercial Glass</option>
-                  <option value="auto">Auto Glass</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
                   <option value="emergency">Emergency Repair</option>
-                  <option value="custom">Custom Glass Work</option>
-                  <option value="replacement">Glass Replacement</option>
+                  <option value="emergency">Locksmith</option>
+                  <option value="emergency">Access Control</option>
                 </select>
               </div>
 

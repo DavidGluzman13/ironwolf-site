@@ -6,15 +6,15 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">G</span>
+                <span className="text-white font-bold text-xl">IW</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold">GTA Glass Services</h3>
-                <p className="text-xs text-slate-400">Expert Glass Solutions</p>
+                <h3 className="text-xl font-bold"> Iron Wolf Doors & Windows</h3>
+                <p className="text-xs text-slate-400">Expert Door & Window Solutions</p>
               </div>
             </div>
             <p className="text-slate-400 leading-relaxed">
-              Your trusted partner for all glass repair, replacement, and installation services across the Greater Toronto Area.
+              Your trusted partner for all Door, Window and Glass repair, replacement, and installation services across the Greater Toronto Area.
             </p>
           </div>
 
@@ -32,18 +32,18 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li className="text-slate-400">Residential Glass</li>
-              <li className="text-slate-400">Commercial Glass</li>
-              <li className="text-slate-400">Auto Glass Repair</li>
+              <li className="text-slate-400">Residential Door/Window/Glass</li>
+              <li className="text-slate-400">Commercial Door/Window/Glass</li>
               <li className="text-slate-400">Emergency Services</li>
-              <li className="text-slate-400">Custom Glass Work</li>
+              <li className="text-slate-400">Locksmith</li>
+              <li className="text-slate-400">Access Control</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-slate-800 pt-8 text-center">
           <p className="text-slate-400">
-            &copy; {new Date().getFullYear()} GTA Glass Services. All rights reserved.
+            &copy; {new Date().getFullYear()} Iron Wolf Doors & Windows. All rights reserved.
           </p>
           <p className="text-slate-500 text-sm mt-2">
             Licensed & Insured | Serving the Greater Toronto Area

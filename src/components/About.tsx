@@ -37,10 +37,10 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              GTA's Most Trusted Glass Service Provider
+              GTA's Most Trusted Door, Window and Glass Service Provider
             </h2>
             <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-              For over two decades, we've been the premier choice for glass services across the Greater Toronto Area. Our commitment to excellence, attention to detail, and customer-first approach have made us the go-to experts for thousands of satisfied clients.
+              For over two decades, we've been the premier choice for Door, Window and Glass services across the Greater Toronto Area. Our commitment to excellence, attention to detail, and customer-first approach have made us the go-to experts for thousands of satisfied clients.
             </p>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
               Whether you need emergency repairs, custom installations, or routine replacements, our skilled team delivers exceptional results every time. We serve all areas including Toronto, Mississauga, Brampton, Markham, Vaughan, Richmond Hill, and beyond.

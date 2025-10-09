@@ -20,7 +20,7 @@ export default function Contact() {
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2">Phone</h3>
             <a href="tel:416-555-0100" className="text-lg text-blue-600 hover:text-blue-700 font-semibold">
-              (416) 555-0100
+              (647) 230-2725
             </a>
             <p className="text-sm text-slate-600 mt-1">24/7 Emergency Line</p>
           </div>
@@ -31,7 +31,7 @@ export default function Contact() {
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2">Email</h3>
             <a href="mailto:info@gtaglass.ca" className="text-lg text-blue-600 hover:text-blue-700 font-semibold">
-              info@gtaglass.ca
+              info@ironwolfdoorswindows.ca
             </a>
             <p className="text-sm text-slate-600 mt-1">Quick Response</p>
           </div>
@@ -50,8 +50,8 @@ export default function Contact() {
               <Clock className="text-blue-600" size={32} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2">Hours</h3>
-            <p className="text-slate-700 font-medium">Mon-Sat: 7AM - 7PM</p>
-            <p className="text-sm text-slate-600 mt-1">Sun: 9AM - 5PM</p>
+            <p className="text-slate-700 font-medium">Mon-Sat: 8AM - 8PM</p>
+            <p className="text-sm text-slate-600 mt-1">Sun: Closed</p>
           </div>
         </div>
       </div>
