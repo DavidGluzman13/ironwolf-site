@@ -21,11 +21,11 @@ export default function Header() {
       <div className="bg-slate-800 text-white py-2">
         <div className="container mx-auto px-4 flex flex-wrap justify-between items-center text-sm">
           <div className="flex items-center gap-4">
-            <a href="tel:+16478894221" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
+            <a href="tel:+16472302725" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
               <Phone size={16} />
               <span>(647) 230-2725</span>
             </a>
-            <a href="mailto:info@ironwolfdoors.ca" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
+            <a href="mailto:info@ironwolfdoorswindows.ca" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
               <Mail size={16} />
               <span>info@ironwolfdoorswindows.ca</span>
             </a>
