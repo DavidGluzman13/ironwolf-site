@@ -19,7 +19,7 @@ export default function Contact() {
               <Phone className="text-blue-600" size={32} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2">Phone</h3>
-            <a href="tel:416-555-0100" className="text-lg text-blue-600 hover:text-blue-700 font-semibold">
+            <a href="tel:647-230-2725" className="text-lg text-blue-600 hover:text-blue-700 font-semibold">
               (647) 230-2725
             </a>
             <p className="text-sm text-slate-600 mt-1">24/7 Emergency Line</p>
@@ -30,7 +30,7 @@ export default function Contact() {
               <Mail className="text-blue-600" size={32} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2">Email</h3>
-            <a href="mailto:info@gtaglass.ca" className="text-lg text-blue-600 hover:text-blue-700 font-semibold">
+            <a href="mailto:info@ironwolfdoorswindows.ca" className="text-lg text-blue-600 hover:text-blue-700 font-semibold">
               info@ironwolfdoorswindows.ca
             </a>
             <p className="text-sm text-slate-600 mt-1">Quick Response</p>
