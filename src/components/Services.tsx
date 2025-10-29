@@ -19,7 +19,7 @@ const services = [
       'Custom Prehung Double Doors',
       'Weatherproof Sealing',
     ],
-    img: '/gallery/doors/Residential-Door-Replacement.jpg',
+    img: '/gallery/windows_glass_webp/coffeeshop-glass-replacement-after.webp',
   },
   {
     icon: Building2,
@@ -97,7 +97,7 @@ export default function Services() {
             Our Services
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Expert door, window, and glass solutions for residential and commercial clients across the GTA
+            Expert Window and Glass repair and installation service solutions for residential and commercial clients across the GTA.
           </p>
         </div>
 
