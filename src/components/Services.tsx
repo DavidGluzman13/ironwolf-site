@@ -19,7 +19,7 @@ const services = [
       'Custom Prehung Double Doors',
       'Weatherproof Sealing',
     ],
-    img: '/gallery/doors/Residential-Door-Replacement.jpg',
+    img: '/gallery/windows_glass_webp/coffeeshop-glass-replacement-after.webp',
   },
   {
     icon: Building2,
@@ -32,7 +32,7 @@ const services = [
       'Door Adjustments & Alignment',
       'Emergency Board-Up Service',
     ],
-    img: '/gallery/doors/Commercial-Door-Replacement.jpg',
+    img: '/gallery/doors_webp/commercial-door-replacement.webp',
   },
   {
     icon: Home,
@@ -45,7 +45,7 @@ const services = [
       'Triple-Pane Glass Options',
       'Exterior Aluminum Capping',
     ],
-    img: '/gallery/windows/Vinyl-Window-Replacement.png',
+    img: '/gallery/windows_glass_webp/vinyl-window-capping-after.webp',
   },
   {
     icon: Zap,
@@ -58,7 +58,7 @@ const services = [
       'Secure Temporary Sealing',
       'Insurance Work Supported',
     ],
-    img: '/gallery/doors/Emergency-Repair.jpeg',
+    img: '/gallery/doors_webp/door-adjustment.webp',
   },
   {
     icon: Wrench,
@@ -71,7 +71,7 @@ const services = [
       'Hinge & Closer Adjustments',
       'Hardware Upgrades',
     ],
-    img: '/gallery/doors/Screen-Door-Replacement.jpg',
+    img: '/gallery/doors_webp/screen-door-replacement.webp',
   },
   {
     icon: ShieldCheck,
@@ -84,7 +84,7 @@ const services = [
       'Custom Door Configurations',
       'Premium Hardware Selection',
     ],
-    img: '/gallery/doors/Custom-Glass-Replacement.png',
+    img: '/gallery/doors_webp/custom-glass-replacement.webp',
   },
 ];
 
@@ -97,7 +97,7 @@ export default function Services() {
             Our Services
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Expert door, window, and glass solutions for residential and commercial clients across the GTA
+            Expert Window and Glass repair and installation service solutions for residential and commercial clients across the GTA.
           </p>
         </div>
 

@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="max-w-3xl">
           {/* Headline */}
           <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Iron Wolf Doors & Windows
+            GTA's Glass Repair and Installation Services
           </h2>
 
           {/* Subtitle */}
