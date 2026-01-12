@@ -33,7 +33,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     await resend.emails.send({
       from: "Iron Wolf Doors and Windows <quotes@ironwolfdoorswindows.ca>",
-      to: ["quotes@ironwolfdoorswindows.ca"], // change if needed
+      to: ["info@ironwolfdoorswindows.ca"], // change if needed
       replyTo: email || undefined,
       subject: `New Quote Request${city ? " - " + city : ""}`,
       html: `
