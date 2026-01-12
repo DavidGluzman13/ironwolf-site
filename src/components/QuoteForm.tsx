@@ -10,15 +10,47 @@ export default function QuoteForm() {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setError(null);
+  setSubmitting(true);
+
+  try {
+    const res = await fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message,
+        // city is optional in your API. You don't collect it yet, so omit it.
+      }),
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok || !data.ok) {
+      throw new Error(data?.error || "Failed to send your request. Please try again.");
+    }
+
     setSubmitted(true);
+    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
     }, 3000);
-  };
+  } catch (err: any) {
+    setError(err?.message || "Something went wrong. Please try again.");
+  } finally {
+    setSubmitting(false);
+  }
+};
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -107,9 +139,9 @@ export default function QuoteForm() {
                   <option value="">Select a service...</option>
                   <option value="residential">Residential</option>
                   <option value="commercial">Commercial</option>
-                  <option value="emergency">Emergency Repair</option>
-                  <option value="emergency">Locksmith</option>
-                  <option value="emergency">Access Control</option>
+                  <option value="emergency-repair">Emergency Repair</option>
+                  <option value="locksmith">Locksmith</option>
+                  <option value="access-control">Access Control</option>
                 </select>
               </div>
 
@@ -128,14 +160,22 @@ export default function QuoteForm() {
                   placeholder="Please describe your glass service needs..."
                 ></textarea>
               </div>
+              
+              {error && (
+                <p className="text-sm text-red-600 font-semibold mb-4">
+                  {error}
+                </p>
+              )}
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition-all font-bold text-lg shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                disabled={submitting}
+                className="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition-all font-bold text-lg shadow-lg hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <Send size={20} />
-                Submit Request
+                {submitting ? "Sending..." : "Submit Request"}
               </button>
+
 
               <p className="text-sm text-slate-600 text-center mt-4">
                 We respect your privacy and will never share your information
