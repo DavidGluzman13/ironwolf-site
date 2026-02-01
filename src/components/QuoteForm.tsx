@@ -1,66 +1,79 @@
-import { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { useState } from "react";
+import { Send, CheckCircle } from "lucide-react";
+import { trackLeadConversion } from "../lib/gtag";
 
 export default function QuoteForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setError(null);
-  setSubmitting(true);
+    e.preventDefault();
+    setError(null);
+    setSubmitting(true);
 
-  try {
-    const res = await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        service: formData.service,
-        message: formData.message,
-        // city is optional in your API. You don't collect it yet, so omit it.
-      }),
-    });
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+          // city is optional in your API. You don't collect it yet, so omit it.
+        }),
+      });
 
-    const data = await res.json().catch(() => ({}));
+      const data = await res.json().catch(() => ({}));
 
-    if (!res.ok || !data.ok) {
-      throw new Error(data?.error || "Failed to send your request. Please try again.");
+      if (!res.ok || !data.ok) {
+        throw new Error(
+          data?.error || "Failed to send your request. Please try again.",
+        );
+      }
+
+      setSubmitted(true);
+
+      // Fire Google Ads conversion only after successful lead submission
+      trackLeadConversion();
+
+      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
+    } catch (err: any) {
+      setError(err?.message || "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
+  };
 
-    setSubmitted(true);
-    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
-
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 3000);
-  } catch (err: any) {
-    setError(err?.message || "Something went wrong. Please try again.");
-  } finally {
-    setSubmitting(false);
-  }
-};
-
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
-    <section id="quote" className="py-20 bg-gradient-to-br from-blue-600 to-cyan-500">
+    <section
+      id="quote"
+      className="py-20 bg-gradient-to-br from-blue-600 to-cyan-500"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
@@ -73,10 +86,16 @@ export default function QuoteForm() {
           </div>
 
           {!submitted ? (
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white rounded-2xl shadow-2xl p-8 md:p-12"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-semibold text-slate-700 mb-2"
+                  >
                     Full Name *
                   </label>
                   <input
@@ -92,7 +111,10 @@ export default function QuoteForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-semibold text-slate-700 mb-2"
+                  >
                     Phone Number *
                   </label>
                   <input
@@ -109,7 +131,10 @@ export default function QuoteForm() {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-slate-700 mb-2"
+                >
                   Email Address *
                 </label>
                 <input
@@ -125,7 +150,10 @@ export default function QuoteForm() {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="service" className="block text-sm font-semibold text-slate-700 mb-2">
+                <label
+                  htmlFor="service"
+                  className="block text-sm font-semibold text-slate-700 mb-2"
+                >
                   Service Needed *
                 </label>
                 <select
@@ -146,7 +174,10 @@ export default function QuoteForm() {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold text-slate-700 mb-2"
+                >
                   Project Details *
                 </label>
                 <textarea
@@ -160,7 +191,7 @@ export default function QuoteForm() {
                   placeholder="Please describe your glass service needs..."
                 ></textarea>
               </div>
-              
+
               {error && (
                 <p className="text-sm text-red-600 font-semibold mb-4">
                   {error}
@@ -175,7 +206,6 @@ export default function QuoteForm() {
                 <Send size={20} />
                 {submitting ? "Sending..." : "Submit Request"}
               </button>
-
 
               <p className="text-sm text-slate-600 text-center mt-4">
                 We respect your privacy and will never share your information
